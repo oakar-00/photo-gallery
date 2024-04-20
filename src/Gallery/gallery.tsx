@@ -112,7 +112,7 @@ function Gallery() {
 			</div>
 			<div className="flex flex-row justify-center space-x-6 m-6 p-2 items-center ">
 				<MdFirstPage
-					className="text-white rounded-full border-2 bg-pink-200 border-black"
+					className="text-white rounded-full border-2 bg-pink-200 border-black dark:bg-white dark:border-white"
 					size={28}
 					color="black"
 					onClick={() => {
@@ -120,18 +120,18 @@ function Gallery() {
 					}}
 				/>
 				<MdNavigateBefore
-					className="text-white rounded-full border-2 bg-pink-200 border-black"
+					className="text-white rounded-full border-2 bg-pink-200 border-black dark:bg-white dark:border-white"
 					size={28}
 					color="black"
 					onClick={() => {
 						changePage("previous");
 					}}
 				/>
-				<p className="dark:text-white border-2 text-black bg-pink-200 border-black dark:border-white p-2 rounded-lg text-2xl">
+				<p className="dark:text-white border-2 text-black bg-pink-200 border-black dark:border-white p-2 rounded-lg text-2xl dark:bg-black">
 					{currentPage}
 				</p>
 				<MdNavigateNext
-					className="text-white rounded-full border-2 bg-pink-200 border-black"
+					className="text-white rounded-full border-2 bg-pink-200 border-black dark:bg-white dark:border-white"
 					size={28}
 					color="black"
 					onClick={() => {
@@ -139,7 +139,7 @@ function Gallery() {
 					}}
 				/>
 				<MdLastPage
-					className="text-white rounded-full border-2 bg-pink-200 border-black"
+					className="text-white rounded-full border-2 bg-pink-200 border-black dark:bg-white dark:border-white"
 					size={28}
 					color="black"
 					onClick={() => {
