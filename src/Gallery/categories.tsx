@@ -1,11 +1,11 @@
-import images from "../images.json";
 import getCategories from "../Utils/utils";
 
 type Props = {
 	setCategory: Function;
+	setCurrentPage: Function;
 };
 
-const Categories = ({ setCategory }: Props) => {
+const Categories = ({ setCategory, setCurrentPage }: Props) => {
 	const categories = getCategories();
 
 	return (
@@ -14,7 +14,10 @@ const Categories = ({ setCategory }: Props) => {
 				<div
 					className="text-black border-black border-2 rounded p-2 px-4 bg-pink-200 hover:bg-white hover:text-black dark:text-white dark:bg-black dark:from-gray-800 dark:to-black dark:border-white dark:hover:bg-white hover:scale-110 duration-100 text-center"
 					key={index}
-					onClick={() => setCategory(item)}
+					onClick={() => {
+						setCategory(item);
+						setCurrentPage(1);
+					}}
 				>
 					{item}
 				</div>

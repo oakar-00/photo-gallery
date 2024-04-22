@@ -9,8 +9,6 @@ import {
 	MdNavigateBefore,
 } from "react-icons/md";
 
-const refreshImages = () => {};
-
 const page_size = 6;
 
 function Gallery() {
@@ -18,7 +16,6 @@ function Gallery() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [popup, setPopup] = useState(false);
 	const [image, setImage] = useState(Object);
-	const [numImages, setNumImages] = useState(0);
 
 	const start_index = (currentPage - 1) * page_size;
 	const filtered_images = [];
@@ -28,7 +25,7 @@ function Gallery() {
 		}
 	} else {
 		for (let i = 0; i < images.images.length; i++) {
-			if (images.images[i].category == category) {
+			if (images.images[i].category === category) {
 				filtered_images.push(images.images[i]);
 			}
 		}
@@ -41,31 +38,21 @@ function Gallery() {
 
 	useEffect(() => {}, []);
 
-	const changeCategory = () => {
-		const final_images = [];
-		for (let i = 0; i < images.images.length; i++) {
-			if (images.images[i].category == category) {
-				final_images.push(image);
-			}
-		}
-		console.log(category);
-	};
-	console.log(category);
 	const changePage = (type: String) => {
 		const max_pages = Math.ceil(filtered_images.length / page_size);
-		if (type == "next") {
+		if (type === "next") {
 			if (currentPage >= max_pages) {
 				setCurrentPage(max_pages);
 			} else {
 				setCurrentPage(currentPage + 1);
 			}
-		} else if (type == "previous") {
-			if (currentPage != 1) {
+		} else if (type === "previous") {
+			if (currentPage !== 1) {
 				setCurrentPage(currentPage - 1);
 			}
-		} else if (type == "first") {
+		} else if (type === "first") {
 			setCurrentPage(1);
-		} else if (type == "last") {
+		} else if (type === "last") {
 			setCurrentPage(max_pages);
 		}
 	};
@@ -88,6 +75,7 @@ function Gallery() {
 						<img
 							className="flex object-fill w-full h-full"
 							src={image.image_link}
+							alt={image.category}
 						></img>
 					</div>
 				</div>
@@ -97,7 +85,7 @@ function Gallery() {
 
 	return (
 		<div className="flex flex-col justify-center p-4 items-center">
-			<Categories setCategory={setCategory} />
+			<Categories setCategory={setCategory} setCurrentPage={setCurrentPage} />
 			<div className="grid md:grid-cols-3 grid-cols-1 gap-8 ">
 				{final_images.map((image) => (
 					<div
